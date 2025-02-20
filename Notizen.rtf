@@ -1,0 +1,98 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red70\green137\blue204;\red0\green0\blue0;
+\red193\green193\blue193;\red212\green214\blue154;\red140\green211\blue254;\red202\green202\blue202;\red167\green197\blue152;
+\red183\green111\blue179;\red67\green192\blue160;\red89\green138\blue67;\red66\green179\blue255;\red194\green126\blue101;
+}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c33725\c61176\c83922;\csgray\c0\c0;
+\cssrgb\c80000\c80000\c80000;\cssrgb\c86275\c86275\c66667;\cssrgb\c61176\c86275\c99608;\cssrgb\c83137\c83137\c83137;\cssrgb\c70980\c80784\c65882;
+\cssrgb\c77255\c52549\c75294;\cssrgb\c30588\c78824\c69020;\cssrgb\c41569\c60000\c33333;\cssrgb\c30980\c75686\c100000;\cssrgb\c80784\c56863\c47059;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 Zum Ausf\'fchren Umgebung in Python:
+\f1\b0 \
+\
+Umgebung: my_project\
+\
+Erstellen der Umgebung: python -m venv my_project\
+Aktivieren der Umgebung: source my_project/bin/activate\
+\
+Deaktivieren der Umgebung: deactivate\
+L\'f6schen der Umgebung: rm -rf my_project\
+\
+\
+\
+
+\f0\b Code Ausf\'fchren:
+\f1\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \CocoaLigature0 (Standart)\
+python3 main.py --dataset ideal --noise 0.03 --args args/ideal/ideal30.json\cf0 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+(Eigene Werte - Abk\'fchlfunktion)\
+python3 main.py --dataset my_data --noise 0.03 --args args/ideal/ideal30.json\
+\
+
+\f0\b Anmerkung:
+\f1\b0 \
+\
+GPy per pip installieren funktioniert nicht.\
+Den Guy Ordner von GitHub zum BACON Verzeichnis hinzugef\'fcgt.\
+\
+
+\f0\b BACON mit eigenen Daten f\'fcttern:
+\f1\b0 \
+1. Die Eigenen Daten in der datasets.py hinzuf\'fcgen.\
+1.1. Neue Funktion mit den beiden Datenreihen:\
+Bsp.: (mit der Funktion my_data)\
+\pard\pardeftab720\partightenfactor0
+
+\fs22 \cf3 \cb4 \expnd0\expndtw0\kerning0
+def\cf5  \cf6 my_data\cf5 (\cf7 noise\cf8 =\cf9 0\cf5 ):\
+    \cf10 import\cf5  numpy \cf10 as\cf5  \cf11 np\cf5 \
+    \cf10 from\cf5  sympy \cf10 import\cf5  Symbol\
+\
+    \cf12 # Deine Temperatur- und Zeitdaten\cf5 \
+    \cf13 T\cf5  \cf8 =\cf5  \cf11 np\cf5 .array([\cf9 23.56\cf5 , \cf9 22.78\cf5 , \cf9 22.16\cf5 , \cf9 21.43\cf5 , \cf9 20.89\cf5 , \cf9 20.38\cf5 , \cf9 20.17\cf5 , \cf9 19.79\cf5 , \cf9 19.47\cf5 , \cf9 19.12\cf5 , \cf9 18.92\cf5 , \cf9 18.62\cf5 , \cf9 18.59\cf5 , \cf9 18.46\cf5 , \cf9 18.12\cf5 , \cf9 17.98\cf5 , \cf9 17.78\cf5 , \cf9 17.43\cf5 , \cf9 17.21\cf5 , \cf9 17.1\cf5 , \cf9 16.87\cf5 , \cf9 16.78\cf5 , \cf9 16.48\cf5 , \cf9 16.26\cf5 , \cf9 16.1\cf5 , \cf9 15.97\cf5 , \cf9 15.76\cf5 , \cf9 15.53\cf5 , \cf9 15.37\cf5 , \cf9 15.33\cf5 , \cf9 15.3\cf5 , \cf9 15.18\cf5 , \cf9 14.95\cf5 , \cf9 14.58\cf5 , \cf9 14.26\cf5 , \cf9 14.05\cf5 , \cf9 13.98\cf5 , \cf9 13.78\cf5 , \cf9 13.57\cf5 , \cf9 13.39\cf5 , \cf9 13.29\cf5 , \cf9 13.08\cf5 , \cf9 12.82\cf5 , \cf9 12.62\cf5 , \cf9 12.46\cf5 , \cf9 12.33\cf5 , \cf9 12.32\cf5 , \cf9 12.26\cf5 , \cf9 12.2\cf5 , \cf9 12.02\cf5 , \cf9 11.92\cf5 , \cf9 11.9\cf5 , \cf9 11.82\cf5 , \cf9 11.71\cf5 , \cf9 11.63\cf5 , \cf9 11.57\cf5 , \cf9 11.41\cf5 , \cf9 11.28\cf5 , \cf9 11.15\cf5 , \cf9 11.02\cf5 , \cf9 10.84\cf5 , \cf9 10.71\cf5 , \cf9 10.54\cf5 , \cf9 10.42\cf5 , \cf9 10.35\cf5 , \cf9 10.24\cf5 , \cf9 10.11\cf5 , \cf9 10.02\cf5 , \cf9 9.94\cf5 , \cf9 9.79\cf5 , \cf9 9.69\cf5 , \cf9 9.6\cf5 , \cf9 9.52\cf5 , \cf9 9.41\cf5 , \cf9 9.31\cf5 , \cf9 9.18\cf5 , \cf9 9.03\cf5 , \cf9 8.92\cf5 , \cf9 8.84\cf5 , \cf9 8.71\cf5 , \cf9 8.5\cf5 , \cf9 8.48\cf5 , \cf9 8.37\cf5 , \cf9 8.27\cf5 , \cf9 8.18\cf5 , \cf9 8.05\cf5 , \cf9 7.93\cf5 , \cf9 7.82\cf5 , \cf9 7.72\cf5 , \cf9 7.61\cf5 , \cf9 7.51\cf5 , \cf9 7.4\cf5 , \cf9 7.29\cf5 , \cf9 7.17\cf5 , \cf9 7.09\cf5 , \cf9 7\cf5 , \cf9 6.89\cf5 , \cf9 6.82\cf5 , \cf9 6.7\cf5 , \cf9 6.51\cf5 , \cf9 6.47\cf5 , \cf9 6.46\cf5 , \cf9 6.36\cf5 , \cf9 6.26\cf5 , \cf9 6.16\cf5 , \cf9 6.05\cf5 , \cf9 5.97\cf5 , \cf9 5.87\cf5 , \cf9 5.81\cf5 , \cf9 5.71\cf5 , \cf9 5.61\cf5 , \cf9 5.5\cf5 , \cf9 5.42\cf5 , \cf9 5.34\cf5 , \cf9 5.24\cf5 , \cf9 5.1\cf5 , \cf9 4.97\cf5 , \cf9 4.86\cf5 , \cf9 4.71\cf5 , \cf9 4.62\cf5 , \cf9 4.59\cf5 , \cf9 4.52\cf5 , \cf9 4.47\cf5 , \cf9 4.39\cf5 , \cf9 4.35\cf5 , \cf9 4.28\cf5 , \cf9 4.21\cf5 , \cf9 4.18\cf5 , \cf9 4.09\cf5 , \cf9 4.04\cf5 , \cf9 3.97\cf5 , \cf9 3.91\cf5 , \cf9 3.83\cf5 , \cf9 3.76\cf5 , \cf9 3.75\cf5 , \cf9 3.61\cf5 , \cf9 3.56\cf5 , \cf9 3.48\cf5 , \cf9 3.4\cf5 , \cf9 3.35\cf5 , \cf9 3.26\cf5 , \cf9 3.26\cf5 , \cf9 3.22\cf5 , \cf9 3.15\cf5 , \cf9 3.09\cf5 , \cf9 3.02\cf5 , \cf9 2.98\cf5 , \cf9 2.94\cf5 , \cf9 2.91\cf5 , \cf9 2.9\cf5 ])\
+\
+    \cf7 t\cf5  \cf8 =\cf5  \cf11 np\cf5 .array([\cf9 1\cf5 , \cf9 2\cf5 , \cf9 3\cf5 , \cf9 4\cf5 , \cf9 5\cf5 , \cf9 6\cf5 , \cf9 7\cf5 , \cf9 8\cf5 , \cf9 9\cf5 , \cf9 10\cf5 , \cf9 11\cf5 , \cf9 12\cf5 , \cf9 13\cf5 , \cf9 14\cf5 , \cf9 15\cf5 , \cf9 16\cf5 , \cf9 17\cf5 , \cf9 18\cf5 , \cf9 19\cf5 , \cf9 20\cf5 , \cf9 21\cf5 , \cf9 22\cf5 , \cf9 23\cf5 , \cf9 24\cf5 , \cf9 25\cf5 , \cf9 26\cf5 , \cf9 27\cf5 , \cf9 28\cf5 , \cf9 29\cf5 , \cf9 30\cf5 , \cf9 31\cf5 , \cf9 32\cf5 , \cf9 33\cf5 , \cf9 34\cf5 , \cf9 35\cf5 , \cf9 36\cf5 , \cf9 37\cf5 , \cf9 38\cf5 , \cf9 39\cf5 , \cf9 40\cf5 , \cf9 41\cf5 , \cf9 42\cf5 , \cf9 43\cf5 , \cf9 44\cf5 , \cf9 45\cf5 , \cf9 46\cf5 , \cf9 47\cf5 , \cf9 48\cf5 , \cf9 49\cf5 , \cf9 50\cf5 , \cf9 51\cf5 , \cf9 52\cf5 , \cf9 53\cf5 , \cf9 54\cf5 , \cf9 55\cf5 , \cf9 56\cf5 , \cf9 57\cf5 , \cf9 58\cf5 , \cf9 59\cf5 , \cf9 60\cf5 , \cf9 61\cf5 , \cf9 62\cf5 , \cf9 63\cf5 , \cf9 64\cf5 , \cf9 65\cf5 , \cf9 66\cf5 , \cf9 67\cf5 , \cf9 68\cf5 , \cf9 69\cf5 , \cf9 70\cf5 , \cf9 71\cf5 , \cf9 72\cf5 , \cf9 73\cf5 , \cf9 74\cf5 , \cf9 75\cf5 , \cf9 76\cf5 , \cf9 77\cf5 , \cf9 78\cf5 , \cf9 79\cf5 , \cf9 80\cf5 , \cf9 81\cf5 , \cf9 82\cf5 , \cf9 83\cf5 , \cf9 84\cf5 , \cf9 85\cf5 , \cf9 86\cf5 , \cf9 87\cf5 , \cf9 88\cf5 , \cf9 89\cf5 , \cf9 90\cf5 , \cf9 91\cf5 , \cf9 92\cf5 , \cf9 93\cf5 , \cf9 94\cf5 , \cf9 95\cf5 , \cf9 96\cf5 , \cf9 97\cf5 , \cf9 98\cf5 , \cf9 99\cf5 , \cf9 100\cf5 , \cf9 101\cf5 , \cf9 102\cf5 , \cf9 103\cf5 , \cf9 104\cf5 , \cf9 105\cf5 , \cf9 106\cf5 , \cf9 107\cf5 , \cf9 108\cf5 , \cf9 109\cf5 , \cf9 110\cf5 , \cf9 111\cf5 , \cf9 112\cf5 , \cf9 113\cf5 , \cf9 114\cf5 , \cf9 115\cf5 , \cf9 116\cf5 , \cf9 117\cf5 , \cf9 118\cf5 , \cf9 119\cf5 , \cf9 120\cf5 , \cf9 121\cf5 , \cf9 122\cf5 , \cf9 123\cf5 , \cf9 124\cf5 , \cf9 125\cf5 , \cf9 126\cf5 , \cf9 127\cf5 , \cf9 128\cf5 , \cf9 129\cf5 , \cf9 130\cf5 , \cf9 131\cf5 , \cf9 132\cf5 , \cf9 133\cf5 , \cf9 134\cf5 , \cf9 135\cf5 , \cf9 136\cf5 , \cf9 137\cf5 , \cf9 138\cf5 , \cf9 139\cf5 , \cf9 140\cf5 , \cf9 141\cf5 , \cf9 142\cf5 , \cf9 143\cf5 , \cf9 144\cf5 , \cf9 145\cf5 , \cf9 146\cf5 , \cf9 147\cf5 , \cf9 148\cf5 , \cf9 149\cf5 , \cf9 150\cf5 ])\
+\
+    \cf12 # Falls Rauschen gew\'fcnscht ist\cf5 \
+    \cf10 if\cf5  \cf7 noise\cf5 :\
+        \cf13 T\cf5  \cf8 +=\cf5  \cf11 np\cf5 .random.normal(\cf9 0\cf5 , \cf7 noise\cf5  \cf8 *\cf5  \cf6 abs\cf5 (\cf13 T\cf5 ))\
+\
+    \cf10 return\cf5  [\cf7 t\cf5 , \cf13 T\cf5 ], [Symbol(\cf14 "t"\cf5 , \cf7 real\cf8 =\cf3 True\cf5 ), Symbol(\cf14 "T"\cf5 , \cf7 real\cf8 =\cf3 True\cf5 )]\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 1.2. Daten zur Funktion allowed_data() hinzuf\'fcgen:\
+Bsp.: (mit der Funktion my_data()) - folgende Zeile in der Funktion hinzuf\'fcgen: \cf14 \cb4 \expnd0\expndtw0\kerning0
+"my_data"\cf5 : \cf6 my_data\cf5 ,
+\f2 \cb1 \
+
+\f1 \cf0 \kerning1\expnd0\expndtw0 \
+2. BACON mit einem angepassten Befehl starten\
+python3 main.py --dataset my_data --noise 0.03 --args args/ideal/ideal30.json\
+\
+3. Ausgabe von BACON\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\fs22 \cf2 \CocoaLigature0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+The constant equations found are:\
+19.1269991145129 = T + 0.120712774283628*t\
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+Final form is T = -19.1269991145129*(0.00631111935337705*t - 1.0) with loss 1.1483670986668013.\
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\
+Program took 0.10s!
+\f1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \CocoaLigature1 \
+\
+\
+\'97\'97\'97\'97\'97\'97\
+}
