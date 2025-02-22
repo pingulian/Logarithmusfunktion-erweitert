@@ -75,7 +75,7 @@ def min_max_abw():
 # im Falle eines antiproportinalen Zusammenhangs
 def antiproportional(average, maxxy, minxy, maxabweichungnumb, abweichung):
     if abweichung < maxerlabweichung:
-        print(" - x entspricht t (Zeit); y entspricht log(T) (Temperatur) - ")
+        print(" - x entspricht t (Zeit); y entspricht -log(T) (Temperatur) + 3,17 - ")
         print("Durchschnitt von (x ↑",a,"* y ↑",b,"):", average)
         print("Maximaler Wert:", maxxy)
         print("Minimaler Wert:", minxy)
@@ -95,7 +95,7 @@ def antiproportional(average, maxxy, minxy, maxabweichungnumb, abweichung):
 # im Falle eines proportionalen Zusammenhangs
 def proportional(average, maxxy, minxy, maxabweichungnumb, abweichung):
     if abweichung < maxerlabweichung:
-        print(" - x entspricht t (Zeit); y entspricht log(T) (Temperatur) - ")
+        print(" - x entspricht t (Zeit); y entspricht -log(T) (Temperatur) + 3,17 - ")
         print("Durchschnitt von (x ↑",a,"/ y ↑",b,"):", average)
         print("Maximaler Wert:", maxxy)
         print("Minimaler Wert:", minxy)
@@ -112,9 +112,9 @@ def proportional(average, maxxy, minxy, maxabweichungnumb, abweichung):
         print("(Die Abweichung vom Durchschnitt überschreitet die maximal zugelassene Abweichung)")
 
 def diagramm():
-    ax.set_title('log(T)(t)-Diagramm')
+    ax.set_title('-log(T)(t)-Diagramm')
     ax.set_xlabel('Zeit t (in s)')
-    ax.set_ylabel('log der Temperatur T (in °C)')        
+    ax.set_ylabel('-log(T) + 3,17')        
     ax.plot(x, y, linewidth=2.0)
     plt.show()
     
